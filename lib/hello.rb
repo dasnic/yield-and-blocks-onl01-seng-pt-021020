@@ -1,12 +1,15 @@
-
+def hello_t(array)
+    i = 0
+    while i < array.length
+      yield(array[i])
+      i = i + 1
+    end
+    array
+end
 
 # call your method here!
-def rb_block
-  puts 'Start'
-  # you can call the block using the yield keyword
-  yield
-  yield
-  puts 'End'
+hello_t(["Tim", "Tom", "Jim"]) do |name|
+  if name.start_with?("T")
+    puts "Hi, #{name}"
+  end
 end
-# Code blocks may appear only in the source adjacent to a method call
-rb_block {puts "We're in the block"}
